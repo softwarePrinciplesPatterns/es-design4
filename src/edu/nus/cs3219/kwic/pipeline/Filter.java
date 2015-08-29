@@ -16,6 +16,7 @@ public abstract class Filter<S, T> implements Consumer<S>, Producer<T> {
 
     @Override
     public T produce() {
+        incoming.next();
         return getMapper().apply(data);
     }
 
